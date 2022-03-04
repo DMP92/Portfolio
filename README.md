@@ -56,3 +56,10 @@
 //     end: "center 18%",
 //     duration: 10
 // })
+
+** I was stuck with not being able to get my text to switch colors on scroll
+
+It would change on the scroll down, but the scroll up it wouldn't
+
+Here's what fixed it:
+    The only way that appears to allow this, is with a fromTo tween, as a to just sets it to that value. A fromTo I'm assuming let's the engine know what to change BACK to

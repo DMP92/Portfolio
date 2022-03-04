@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 // import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import * as THREE from './THREE.js';
+import { NoToneMapping } from 'three';
 
 const section1 = document.querySelector('.canvas');
 const sect = {
@@ -78,119 +79,9 @@ window.addEventListener('load', () =>
 })
 
 
-/**
- * Mouseover animations
-*/
-
-// Buttons
-const button0 = document.querySelector('.button0');
-const button1 = document.querySelector('.button1');
-const button2 = document.querySelector('.button2');
-const button3 = document.querySelector('.button3');
-
-// onMouseOver
-button0.addEventListener('mouseover', () =>
-{
-    gsap.to(".animate0",
-    {
-        width: "150px",
-        borderTopRightRadius: "0px",
-        borderBottomRightRadius: "0px",
-        duration: .3,
-        ease: "bounce.out"
-    })
-
-    gsap.to(".button0", { color: '#2a2a2e', duration: .5 });
-    // console.log(getComputedStyle(button1))
-})
-
-button1.addEventListener('mouseover', () =>
-{
-    gsap.to(".animate1",
-    {
-        width: "150px",
-        borderTopRightRadius: "0px",
-        borderBottomRightRadius: "0px",
-        duration: .3,
-        ease: "bounce.out"
-    })
-
-    gsap.to(".button1", { color: '#2a2a2e', duration: .5 });
-    // console.log(getComputedStyle(button1))
-})
-
-button2.addEventListener('mouseover', () =>
-{
-    gsap.to(".animate2",
-    {
-        justifySelf: 'start',
-        width: "100%",
-        duration: .3,
-    })
-    // console.log(getComputedStyle(button1))
-})
-
-button3.addEventListener('mouseover', () =>
-{
-    gsap.to(".animate3",
-    {
-        width: "100%",
-        duration: .3,
-    })
-})
-
-/**
- * Mouseout animations
- */
-
-button0.addEventListener('mouseout', () => 
-{
-    gsap.to('.animate0',
-        {
-            width: "0px",
-            duration: .3,
-            borderTopRightRadius: "10px",
-            borderBottomRightRadius: "10px",
-        })
-
-    gsap.to(".button0", { color: '#386F86', duration: .5 });
-
-})
-
-button1.addEventListener('mouseout', () => 
-{
-    gsap.to('.animate1',
-        {
-            width: "0px",
-            duration: .3,
-            borderTopRightRadius: "10px",
-            borderBottomRightRadius: "10px",
-        })
-
-    gsap.to(".button1", { color: '#386F86', duration: .5 });
-
-})
-
-button2.addEventListener('mouseout', () => 
-{
-    gsap.to('.animate2',
-        {
-            justifySelf: 'end',
-            width: "0%",
-            duration: .3,
-
-        })
-})
-
-button3.addEventListener('mouseout', () => 
-{
-    gsap.to('.animate3',
-        {
-            width: "0%",
-            duration: .3,
-            justifySelf: 'right',
-        })
-});
+// /**
+//  * Mouseover animations
+// */
 
 /**
  * S1 header text animation
@@ -235,16 +126,17 @@ const h2TL = gsap.fromTo('.header2',
 
 /**
  * Section 2 animations
- */
+*/
 
-// Section 2 H2 animation
-const tx = gsap.timeline(),
+// Section 2 Header pop in
+const sect1Header = gsap.timeline(),
 mySplitText = new SplitText(".testPara", { type: "words, chars" }),
 chars = mySplitText.chars;
-
 gsap.set('.testPara', { perspective: 800 });
+gsap.to('.testPara', { color: 'black' })
 
-tx.from(chars, {
+// Flip header in
+sect1Header.from(chars, {
     duration: 1,
     opacity: 0,
     scale: 1,
@@ -253,69 +145,109 @@ tx.from(chars, {
     transformOrigin: "0%, 50% -30",
     ease: "back",
     stagger: .05,
-}).to('.testPara',
-{
-        content: 'RAGE',
-        pin: true,
-        end: "+=10000",
 })
 
+// ST for header flip in
 ScrollTrigger.create({
-    animation: tx,
+    animation: sect1Header,
     trigger: ".testPara",
     start: "top 15%",
     pin: true,
     end: "+=8000",
-    toggleActions: "play restart resume none"
+    toggleActions: "play restart resume none",
 })
 
-// Test for git
+// const slides = document.querySelectorAll('.slide');
 
-// Change body background color onScroll
-const body = document.body;
-const colorTL = gsap.timeline();
-
-colorTL.to('.section2',
-    {
-        color: 'white',
+// Change Section2 background color to #2a2a2e on scroll
+const bgColor = gsap.timeline();
+bgColor.to('.section2', {
         backgroundColor: '#2a2a2e',
     })
-    .to('.testPara',
+    .to('.testPara', 
     {
-        color: '#626264',
-        scrub: true,
-    }).add(() => 
-    {
-        console.log('freak yeah')
-    }).add(() => {
-        console.log(Math.PI * .03)
-    });
-
-ScrollTrigger.create({
-    animation: colorTL,
-    trigger: '.section1',
-    scrub: true,
+        color: 'white',
+    })
     
-    start: "bottom top",
-    end: "+=100",
+// const slidesTL = gsap.timeline();
+
+// slidesTL.to(slides,
+//     {
+//         xPercent: -100 * (slides.length - 1),
+//         ease: 'none',
+//         scrollTrigger: {
+//             animation: slidesTL,
+//             trigger: ".section2",
+//             pin: true,
+//             scrub: 1,
+//             snap: 1 / (slides.length - 1),
+//             start: "bottom bottom",
+//             end: () => "+=" + document.querySelector('.section2').offsetWidth
+//         }
+//     })
+   
+// ST for bgcolor + header color change
+ScrollTrigger.create({
+    animation: bgColor,
+    trigger: '.section2',
+    scrub: true,
+    start: "center center",
+    end: "bottom bottom",
+    markers: true,
 });
 
-const s2Head = gsap.timeline();
-
-s2Head.to('.testPara',
+const sec2HeadWhite = gsap.timeline();
+sec2HeadWhite.fromTo('.testPara',
 {
-    color: 'orange',
-    scrub: true,
+    color: 'white',
+},
+{
+    color: 'black'
 })
 
 ScrollTrigger.create({
-    animation: s2Head,
+    animation: sec2HeadWhite,
     trigger: '.section2',
-    start: "bottom top",
-    end: '+= 200px',
-    ease: 'bounce.out',
     scrub: true,
+    start: "bottom 22%",
+    end: "bottom 6%",
 })
+
+
+
+
+// const h2Grey = gsap.timeline();
+// h2Grey.to('.testPara', 
+// {
+//     color: '#626264',
+//     scrub: true,
+// });
+
+// ScrollTrigger.create({
+//     animation: h2Grey,
+//     trigger: '.section1',
+//     start: "bottom top",
+//     scrub: true,
+//     end: "+= 40px"
+// })
+
+// Change testPara color to orange
+// const h2Black = gsap.timeline();
+
+// h2Black.to('.testPara',
+// {
+//     color: 'black',
+//     scrub: true,
+// })
+
+// ScrollTrigger.create({
+//     animation: h2Black,
+//     trigger: '.section2',
+//     start: "bottom top",
+//     end: '+= 200px',
+//     ease: 'bounce.out',
+//     scrub: true,
+// })
 
 // Animate SVG path
 const svg = gsap.timeline();
@@ -330,21 +262,29 @@ ScrollTrigger.create({
     end: "+=2000px", 
 })
 
-const smallImg = gsap.timeline().fromTo('.smallImg', 
-{
-    x: "-= 100%",
-},
-{
-    duration: 2,
-    ease: Power0.easeInOut(),
-    x: "-55%",
-})
+// const smallImg = gsap.timeline().fromTo('.smallImg', 
+// {
+//     x: "-= 100%",
+// },
+// {
+//     duration: 2,
+//     ease: Power0.easeInOut(),
+//     x: "-55%",
+// })
 
-ScrollTrigger.create({
-    animation: smallImg,
-    trigger: ".testSection",
-    start: "top center",
-    scrub: false,
-    pin: true,
-    end: "+=400px"
-})
+// ScrollTrigger.create({
+//     animation: smallImg,
+//     trigger: ".testSection",
+//     start: "top center",
+//     scrub: false,
+//     pin: true,
+//     end: "+=400px"
+// })
+// const butt = document.querySelector('.testButton');
+
+// butt.addEventListener('click', () =>
+// {
+//     console.log('works')
+// })
+
+console.log('hey')

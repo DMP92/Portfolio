@@ -91,25 +91,6 @@ body
     justify-content: space-between;
 }
 
-.hamburger
-{
-    width: 80px;
-    height: 60px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-left: 70px !important;
-}
-
-.hamburger > * 
-{
-    width: 40px;
-    margin-top: 5px;
-    height: 6px;
-    background-color: rgb(101, 88, 56);
-}
-
 /* Header Links */
 .navButtonGroup
 {
@@ -118,6 +99,16 @@ body
 
 /* Header buttons */
 .headerCTA0, .headerCTA1
+{
+    background-color: var(--dark-accent);
+    color: black;
+    font-family: Helvetica;
+    font-weight: 900 !important;
+    width: 150px;
+    height: 100%;
+}
+
+.white-button
 {
     background-color: var(--dark-accent);
     color: black;
@@ -277,31 +268,77 @@ h2
 /* ------------ Section 2 ---------------*/
 .section2
 {
+    margin-top: 10px;
     display: flex;
+    /* position: sticky; */
     flex-direction: column;
-    justify-content: flex-start !important;
-    align-items: center !important;
+    justify-content: start;
+    align-items: center;
     color: white;
     padding-top: 100px;
     background-color: var(--dark-accent);
     font-size: 50px;
     width: 100vw;
     height: 1500px;
-    align-items: flex-start;
-    justify-content: center;
     font-family: Helvetica;
+    overflow-x: auto;
 }
 
 .testPara
 {
-    width: 50%;
-    color: var(--background-color);
+    width: 100%;
     font-family: ClashDisplay-Bold;
     font-weight: 300;
-    font-size: 80px !important;
+    font-size: 80px;
     text-align: center;
+    color: black;
     z-index: 20;
+    padding: 0;
 }
+
+/* Test section */
+/* .slide 
+{
+    position: sticky;
+    align-self: flex-end;    
+    width: 100vw !important;
+    height: 100vh !important;
+    position: sticky;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+}
+
+.slide0 
+{
+    background-color: var(--dark-orange);
+    width: 100vw !important;
+    height: 100vh !important;
+}
+
+.slide1 
+{
+    background-color: #45FFE9;
+    width: 100vw !important;
+    height: 100vh !important;
+}
+
+.slide2 
+{
+    background-color: #386F86;
+    width: 100vw !important;
+    height: 100vh !important;
+}
+
+.slide3
+{
+    background-color: #FFD800;
+    width: 100vw !important;
+    height: 100vh !important;
+} */
+
+
 
 /* ------------- Possibly won't use this section ------------ */
 /* .testSection
@@ -369,108 +406,159 @@ button
     border: none;
 }
 
-.button1, .button0
+.hamburger
 {
- /* color: var(--dark-blue); */
- color: rgb(101, 88, 56) !important; 
- z-index: 30;
- font-family: ClashDisplay-Medium !important;
- width: 150px !important;
- height: 100%;
-}
-
-.button0, .button1
-{
-    display: flex;
-    padding: 0;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 150px !important;
+    width: 80px;
     height: 60px;
-    position: relative;
-    font-size: 20px;
-    font-family: "ClashDisplay-Bold", sans-serif;
-    font-weight: 500;
-    font-style: bold;
-}
-
- .button2, .button3
-{
     display: flex;
-    padding: 0;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
+    padding: 0;
+    margin-left: 70px !important;
+}
+
+.hamburger > *:not(:first-child)
+{
+    width: 40px;
+    margin-top: 5px;
+    height: 6px;
+    justify-self: center;
+    align-self: center;
+    background-color: rgb(101, 88, 56);
+}
+
+.hamburger-background 
+{
+    position: absolute;
+    opacity: 0.09;
+    width: 80px;
+    height: 60px;
+    background: #2a2a2e;
+    transform: scaleX(0);
+    transform-origin: top right;
+    transition: transform 0.3s ease-in-out;
+    will-change: transform;
+}
+
+.white-button
+{
+    width: 150px;
+    height: 60px;
+    background: white;
+}
+
+.blue-button
+{
     width: 100%;
     height: 80px;
-    position: absolute;
-    font-size: 25px;
-    color: var(--background-color) !important;
-    font-family: "ClashDisplay-Medium", sans-serif !important;
-    display: flex;
-    justify-content: center;
+    background-color: var(--bright-blue);
 
+    border-radius: 3px;
+    margin-right: 40px;
+    color: var(--background-color) !important;
+}
+
+.button-animation
+{
+    position: relative;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
 }
 
 /* --------- Button Animate Panel ---------- */
-
-
-.clearButtonAnimate
+.hamburger:hover > .hamburger-background
 {
-    height: 60px;
-    width: 0;
-    background-color: transparent;
+    transform: scaleX(1);
+    transform-origin: top left;
+}
+
+.button-background 
+{
+    display: block;
     position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 15px;
-    font-family: Helvetica;
-    font-weight: 900;
-    color: white;
-    border-radius: 2px;
-    justify-self: start;
-}
-
-.blueButtonAnimate
-{
-    height: 70px;
-    background-color: transparent;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 15px;
-    font-family: Helvetica;
-    font-weight: 900;
-    color: white;
-    border-radius: 2px;
-    justify-self: start;
-}
-
-.animate0, .animate1
-{
-    width: 0%;
-    background-color: var(--exp-color);
-    height: 60px;
-    
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px;
-    border-top-right-radius: 50px;
-    border-bottom-right-radius: 50px;
-}
-
-.animate2, .animate3
-{
-    width: 0%;
-    background-color: var(--dark-accent);
-}
-
-
-.buttonAnimate:hover 
-{
-    background-color: var(--dark-accent);
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    transform: scaleX(0);
+    transform-origin: top right;
+    transition: transform 0.3s cubic-bezier(0.53, 0.21, 0, 1);
+    will-change: transform;
 }
 
+.label
+{
+    width: 100%;
+    position: absolute;
+    font-size: 20px;
+    font-weight: 500;
+    font-style: bold;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.white-hover
+{
+    background: #2a2a2e !important;
+    opacity: 0.09;
+}
+
+.blue-hover
+{
+    background: #ffffff !important;
+    opacity: 1;
+    border-radius: 3px;
+}
+
+.white-label
+{
+    font-family: "ClashDisplay-medium", sans-serif;
+    font-family: ClashDisplay-Medium;
+    font-size: 20px;
+    font-weight: 500;
+    font-style: bold;
+    color: rgb(101, 88, 56);
+}
+
+.blue-label
+{
+    font-size: 25px;
+    color: var(--background-color) !important;
+    font-family: "ClashDisplay-Medium", sans-serif !important;
+}
+
+.button-animation:hover > .button-background
+{
+    transform: scaleX(1);
+    transform-origin: top left;
+}
+
+/* Tests */
+
+.hover 
+{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #d7d7d7;
+    width: 100%;
+    height: 100%;
+    opacity: .09;
+    transform: scaleX(0);
+    transform-origin: top right;
+    transition: transform 0.3s cubic-bezier(0.53, 0.21, 0, 1);
+    will-change: transform;
+}
+
+.testButton:hover > .hover
+{
+    transform: scaleX(1);
+    transform-origin: top left;
+}
