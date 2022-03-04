@@ -16,45 +16,117 @@
 @font-face 
 {
     font-family: ClashDisplay-Bold;
-    src: url("../static/fonts/OTF/ClashDisplay-Bold.woff");
+    src: url("../../static/fonts/OTF/ClashDisplay-Bold.woff");
     font-weight: bold;
 }
 
 @font-face 
 {
     font-family: ClashDisplay-Extralight;
-    src: url("../static/fonts/OTF/ClashDisplay-Extralight.ttf");
+    src: url("../../static/fonts/OTF/ClashDisplay-Extralight.ttf");
 }
 
 @font-face 
 {
     font-family: ClashDisplay-Light;
-    src: url("../static/fonts/OTF/ClashDisplay-Light.ttf");
+    src: url("../../static/fonts/OTF/ClashDisplay-Light.ttf");
 }
 
 @font-face 
 {
     font-family: ClashDisplay-Regular;
-    src: url("../static/fonts/OTF/ClashDisplay-Regular.ttf");
+    src: url("../../static/fonts/OTF/ClashDisplay-Regular.ttf");
 }
 
 @font-face 
 {
     font-family: ClashDisplay-Medium;
-    src: url("../static/fonts/OTF/ClashDisplay-Medium.ttf");
+    src: url("../../static/fonts/OTF/ClashDisplay-Medium.ttf");
 }
 
 @font-face 
 {
     font-family: ClashDisplay-Semibold;
-    src: url("../static/fonts/OTF/ClashDisplay-Semibold.ttf");
+    src: url("../../static/fonts/OTF/ClashDisplay-Semibold.ttf");
     font-weight: bold;
 }
 
 @font-face 
 {
     font-family: ClashDisplay-Variable;
-    src: url("../static/fonts/OTF/ClashDisplay-Variable.woff") format("woff");
+    src: url("../../static/fonts/OTF/ClashDisplay-Variable.woff") format("woff");
+}
+
+@media (min-width: 1600px)
+{
+    h1 > *
+    {
+        font-size: 70px !important;
+    }
+}
+
+@media (max-width: 1600px)
+{
+    h1 > *
+    {
+        font-size: 60px !important;
+    }
+}
+
+@media (max-width: 1300px)
+{
+    h1 > *
+    {
+        font-size: 55px !important;
+    }
+}
+
+@media (max-width: 1050px)
+{
+    h1 > *
+    {
+        font-size: 50px !important;
+    }
+}
+
+@media (max-width: 800px)
+{
+    h1 > *
+    {
+        font-size: 6.5vw !important;
+    }
+
+    h2 
+    {
+        font-size: 4vw !important;
+    }
+}
+
+@media (max-width: 600px)
+{
+    h1 > *
+    {
+        /* font-size: 36px !important; */
+        font-size: 2vw;
+    }
+
+   
+}
+
+@media (max-width: 500px)
+{
+    h1 > * 
+    {
+        font-size: 33px !important;
+    }
+}
+
+@media (max-width: 400px)
+{
+    h1 > *
+    {
+        font-size: 30px !important;
+    }
 }
 
 body
@@ -230,7 +302,6 @@ body.stop-scroll
 .section1
 {
     height: 90vh;
-    width: 95vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -238,6 +309,44 @@ body.stop-scroll
     background-color: var(--dark-blue);
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;
+}
+
+@media (min-width: 1600px )
+{
+    .section1 
+    { 
+        width: 1520px;
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+    }
+}
+
+@media (max-width: 1600px)
+{
+    .section1 
+    { 
+        width: 95vw;
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+    }
+}
+
+@media (max-width: 1300px)
+{
+    .section1 
+    { 
+        width: 95vw; 
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+    }
+}
+
+@media (max-width: 1050px) {
+    .section1 
+    { 
+        width: 100vw; 
+        border-radius: 0;
+    }
 }
 
 /* ------------ S1 CTA container ---------------*/
@@ -256,19 +365,59 @@ body.stop-scroll
 .h1CTAContainer
 {
     display: flex;
+    justify-self: center;
+    align-self: center;
     flex-direction: column;
-    justify-content: start;
-    align-items: start;
-    width: 650px;
+    justify-content: center;
+    align-items: center;
     margin: 0;
     padding: 0;
+}
+
+@media (min-width: 1600px)
+{
+    .h1CTAContainer
+    {
+        width: 900px;
+    }
+}
+
+@media (max-width: 1600px)
+{
+    .h1CTAContainer 
+    { 
+        width: 750px;
+    }
+}
+
+@media (max-width: 1300px)
+{
+    .h1CTAContainer 
+    { 
+        width: 710px !important; 
+    }
+}
+
+@media (max-width: 1050px) {
+    .h1CTAContainer 
+    { 
+        width: 650px !important; 
+        border-radius: 0;
+    }
+}
+
+@media (max-width: 800px)
+{
+    .h1CTAContainer
+    {
+        width: 85% !important;
+    }
 }
 
 /* S1 main heading */
 .sect1Header
 {
     color: #fffefe;
-    font-size: 50px;
     font-family: ClashDisplay-Bold;
     font-weight: 900;
     font-style: bold;
@@ -293,17 +442,19 @@ span
 .whiteSpan
 {
     color: white;
-    font-size: 50px;
+    
 }
 
 .blueSpan 
 {
-    font-size: 50px;
+    
 }
 
 /* S1 H2 heading */
 h2
 {
+    justify-self: start;
+    align-self: start;
     text-align: left;
     color: white;
     width: 100%;
@@ -340,6 +491,52 @@ h2
     justify-self: start;
     width: 700px;
     height: 120px;
+}
+
+@media (max-width: 1050px)
+{
+    .sect1CTAContainer
+    {
+        width: 600px;
+    }
+
+    .sect1CTAContainer > button > span.label
+    {
+        font-size: 25px !important;
+    }
+}
+
+@media (max-width: 800px)
+{
+    .sect1CTAContainer
+    {
+        width: 500px !important;
+    }
+
+    .sect1CTAContainer > button > span.label
+    {
+        font-size: 20px !important;
+    }
+}
+
+@media (max-width: 600px)
+{
+    .sect1CTAContainer
+    {
+        width: 460px !important;
+        justify-content: space-evenly !important;
+        justify-self: center;
+    }
+
+    .sect1CTAContainer > button > span.label
+    {
+        font-size: 20px !important;
+    }
+
+    .sect1CTAContainer > button
+    {
+        margin: 10px;
+    }
 }
 
 /* S1 CTA button container */
@@ -672,3 +869,7 @@ button
     transform: scaleX(1);
     transform-origin: top left;
 }
+
+
+/* MEDIA QUERIES ** MAY PUT THESE ELSE WHERE **  */
+

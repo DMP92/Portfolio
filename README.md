@@ -63,3 +63,17 @@ It would change on the scroll down, but the scroll up it wouldn't
 
 Here's what fixed it:
     The only way that appears to allow this, is with a fromTo tween, as a to just sets it to that value. A fromTo I'm assuming let's the engine know what to change BACK to
+
+
+
+
+
+MUST BE FIXED
+~~~~~~~~~~~~
+- Menu open/close
+    The menu needs to be able to be opened and closed quickly. As of right now, it glitches if you open/close too quickly since the animations aren't finished yet.
+
+- Responsive design
+
+- Horizontal slider
+    
