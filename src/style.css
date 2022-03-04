@@ -65,7 +65,7 @@ body
     height: 50000px;
     background-color: var(--dark-accent);
     /* background-color: #2a2a2e; */
-    overflow-x: hidden;
+    overflow-x: hidden !important;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -80,9 +80,9 @@ body.stop-scroll
 
 .menuModal
 {
+    overflow-x: hidden;
     display: none;
     position: absolute;
-    padding-top: 150px;
     top: 0vh;
     left: 0vw;
     width: 100vw;
@@ -92,7 +92,6 @@ body.stop-scroll
     transform-origin: top left;
     transition: transform 0.5s ease-in-out;
     transform: translateY(100%);
-    overflow-y: auto !important;
 }
 
 .menuModal.visible.open
@@ -106,7 +105,6 @@ body.stop-scroll
     transform: translateY(0vh);
     will-change: transform;
     transform-origin: top left;
-    overflow-y: auto;
 }
 
 .menuModal.visible
@@ -121,6 +119,16 @@ body.stop-scroll
     z-index: 19;
     transform-origin: top left;
     overflow-y: auto;
+}
+
+.link-container
+{
+    overflow-x: hidden;
+    padding-top: 150px;
+    padding-bottom: 50px;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll !important;
 }
 
 .menuLink
