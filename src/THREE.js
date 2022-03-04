@@ -9,6 +9,7 @@ import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
 import { CubeTextureLoader } from 'three';
 import { Scene } from 'three';
 
+
 // Canvas
 const canvas = document.querySelector('.canvas');
 
@@ -172,12 +173,12 @@ const sphereGeometry = new THREE.SphereBufferGeometry();
 /**
  * Controls
  */
-const controls = new OrbitControls(camera, canvas);
+let controls = new OrbitControls(camera, canvas);
 controls.enableDamping = true;
 controls.dampingFactor = true;
 controls.enableZoom = false;
 
- 
+
 // Mouse position
 let cursor = {}
 cursor.x = 0;

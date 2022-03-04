@@ -5,6 +5,8 @@ import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
 // import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import * as THREE from './THREE.js';
 import { NoToneMapping } from 'three';
+import menu from './menu.js';
+
 
 const section1 = document.querySelector('.canvas');
 const sect = {
@@ -13,6 +15,7 @@ const sect = {
     doc: document,
 };
 
+const body = document.body;
 
 /**
  * Options
@@ -24,6 +27,7 @@ gsap.registerPlugin(SplitText, ScrollTrigger, DrawSVGPlugin);
  */
 window.addEventListener('load', () => 
 {
+    body.classList.add('stop-scroll');
     // Header slide in
     gsap.fromTo(".section1", 
     {
@@ -74,8 +78,22 @@ window.addEventListener('load', () =>
     {
         x: "0%",
         delay: 3,
-        ease: 'power4.out'
+        ease: 'power4.out',
     })
+
+    
+    // const pageLoadTL = gsap.timeline({
+    //     onStart: console.log('start'),
+    //     onComplete: allowScroll
+    // });
+
+    // pageLoadTL
+    //     .to('.section1', { x: '0%', duration: 1, ease: "power4.out" })
+    //     .to('.sect1CTAContainer', { opacity: '100%', delay: 2.35 })
+    //     .to('botLine', { x: '0%', delay: 2.55, ease: 'power4.out' })
+    //     .to('midLine', { x: '0%', delay: 2.75, ease: 'power4.out' })
+    //     .to('topLine', { x: '0%', delay: 3, ease: 'power4.out' })
+
 })
 
 
@@ -157,34 +175,37 @@ ScrollTrigger.create({
     toggleActions: "play restart resume none",
 })
 
-// const slides = document.querySelectorAll('.slide');
 
 // Change Section2 background color to #2a2a2e on scroll
 const bgColor = gsap.timeline();
 bgColor.to('.section2', {
-        backgroundColor: '#2a2a2e',
-    })
-    .to('.testPara', 
-    {
-        color: 'white',
-    })
-    
-// const slidesTL = gsap.timeline();
+    backgroundColor: '#2a2a2e',
+})
+.to('.testPara', 
+{
+    color: 'white',
+})
 
-// slidesTL.to(slides,
-//     {
-//         xPercent: -100 * (slides.length - 1),
-//         ease: 'none',
-//         scrollTrigger: {
-//             animation: slidesTL,
-//             trigger: ".section2",
-//             pin: true,
-//             scrub: 1,
-//             snap: 1 / (slides.length - 1),
-//             start: "bottom bottom",
-//             end: () => "+=" + document.querySelector('.section2').offsetWidth
-//         }
-//     })
+
+
+// const slides = gsap.utils.toArray('.slide');
+// const slidesTL = gsap.timeline();
+// slidesTL.from('.slide1', { xPercent: -100 })
+//     .from('.slide2', { xPercent: -100 })
+//     .from('.slide3', { xPercent: -100 })
+
+// ScrollTrigger.create({
+//     animation: slidesTL,
+//     trigger: ".section2",
+//     start: "bottom 6%",
+//     pin: true,
+//     scrub: true,
+//     anticipatePin: 1,
+//     snap: 1 / (slides.length - 1) * 0.6,
+//     markers: true,
+//     end: "+= 4000"
+// })
+
    
 // ST for bgcolor + header color change
 ScrollTrigger.create({
@@ -212,7 +233,6 @@ ScrollTrigger.create({
     start: "bottom 22%",
     end: "bottom 6%",
 })
-
 
 
 
