@@ -64,7 +64,14 @@ It would change on the scroll down, but the scroll up it wouldn't
 Here's what fixed it:
     The only way that appears to allow this, is with a fromTo tween, as a to just sets it to that value. A fromTo I'm assuming let's the engine know what to change BACK to
 
+** I was stuck being unable to get a horizontal slider implemented
 
+Here's what fixed it:
+    I'm unsure what all was necessary in the following list, but:
+
+    I created an additional div to contain each slider
+
+    I set the align-self to start (flex-start)
 
 
 
@@ -75,5 +82,5 @@ MUST BE FIXED
 
 - Responsive design
 
-- Horizontal slider
-    
+*X* - Horizontal slider
+

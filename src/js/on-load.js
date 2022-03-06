@@ -17,6 +17,9 @@ const page = new Variables();
  */
 window.addEventListener('load', () => 
 {
+    // Force page to top on load
+    window.scrollTo(0, 0);
+
     // Prevent page scroll
     page.body.classList.add('stop-scroll');
 
@@ -73,4 +76,8 @@ window.addEventListener('load', () =>
         ease: 'power4.out',
     })
 
+    /**
+     * Section 2
+     */
+    
 })

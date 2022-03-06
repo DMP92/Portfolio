@@ -12,13 +12,13 @@ import Variables from './Variables';
 
 // Animate SVG path
 const svg = gsap.timeline();
-svg.fromTo('.cls-1', {drawSVG: "0%"}, {drawSVG: "100%"});
+svg.fromTo('.cls-1', {drawSVG: "0%" }, {drawSVG: "100%" });
 
 ScrollTrigger.create({
     animation: svg,
     trigger: '.cls-1',
     scrub: true,
-    
+    ease: "easeInOut",
     start: "top center",
     end: "+=2000px", 
 })

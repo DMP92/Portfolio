@@ -57,78 +57,6 @@
     src: url("../../static/fonts/OTF/ClashDisplay-Variable.woff") format("woff");
 }
 
-@media (min-width: 1600px)
-{
-    h1 > *
-    {
-        font-size: 70px !important;
-    }
-}
-
-@media (max-width: 1600px)
-{
-    h1 > *
-    {
-        font-size: 60px !important;
-    }
-}
-
-@media (max-width: 1300px)
-{
-    h1 > *
-    {
-        font-size: 55px !important;
-    }
-}
-
-@media (max-width: 1050px)
-{
-    h1 > *
-    {
-        font-size: 50px !important;
-    }
-}
-
-@media (max-width: 800px)
-{
-    h1 > *
-    {
-        font-size: 6.5vw !important;
-    }
-
-    h2 
-    {
-        font-size: 4vw !important;
-    }
-}
-
-@media (max-width: 600px)
-{
-    h1 > *
-    {
-        /* font-size: 36px !important; */
-        font-size: 2vw;
-    }
-
-   
-}
-
-@media (max-width: 500px)
-{
-    h1 > * 
-    {
-        font-size: 33px !important;
-    }
-}
-
-@media (max-width: 400px)
-{
-    h1 > *
-    {
-        font-size: 30px !important;
-    }
-}
-
 body
 {
     padding: 0;
@@ -311,44 +239,6 @@ body.stop-scroll
     border-bottom-right-radius: 50px;
 }
 
-@media (min-width: 1600px )
-{
-    .section1 
-    { 
-        width: 1520px;
-        border-bottom-left-radius: 50px;
-        border-bottom-right-radius: 50px;
-    }
-}
-
-@media (max-width: 1600px)
-{
-    .section1 
-    { 
-        width: 95vw;
-        border-bottom-left-radius: 50px;
-        border-bottom-right-radius: 50px;
-    }
-}
-
-@media (max-width: 1300px)
-{
-    .section1 
-    { 
-        width: 95vw; 
-        border-bottom-left-radius: 50px;
-        border-bottom-right-radius: 50px;
-    }
-}
-
-@media (max-width: 1050px) {
-    .section1 
-    { 
-        width: 100vw; 
-        border-radius: 0;
-    }
-}
-
 /* ------------ S1 CTA container ---------------*/
 
 .section1HeaderContainer 
@@ -372,46 +262,6 @@ body.stop-scroll
     align-items: center;
     margin: 0;
     padding: 0;
-}
-
-@media (min-width: 1600px)
-{
-    .h1CTAContainer
-    {
-        width: 900px;
-    }
-}
-
-@media (max-width: 1600px)
-{
-    .h1CTAContainer 
-    { 
-        width: 750px;
-    }
-}
-
-@media (max-width: 1300px)
-{
-    .h1CTAContainer 
-    { 
-        width: 710px !important; 
-    }
-}
-
-@media (max-width: 1050px) {
-    .h1CTAContainer 
-    { 
-        width: 650px !important; 
-        border-radius: 0;
-    }
-}
-
-@media (max-width: 800px)
-{
-    .h1CTAContainer
-    {
-        width: 85% !important;
-    }
 }
 
 /* S1 main heading */
@@ -493,52 +343,6 @@ h2
     height: 120px;
 }
 
-@media (max-width: 1050px)
-{
-    .sect1CTAContainer
-    {
-        width: 600px;
-    }
-
-    .sect1CTAContainer > button > span.label
-    {
-        font-size: 25px !important;
-    }
-}
-
-@media (max-width: 800px)
-{
-    .sect1CTAContainer
-    {
-        width: 500px !important;
-    }
-
-    .sect1CTAContainer > button > span.label
-    {
-        font-size: 20px !important;
-    }
-}
-
-@media (max-width: 600px)
-{
-    .sect1CTAContainer
-    {
-        width: 460px !important;
-        justify-content: space-evenly !important;
-        justify-self: center;
-    }
-
-    .sect1CTAContainer > button > span.label
-    {
-        font-size: 20px !important;
-    }
-
-    .sect1CTAContainer > button
-    {
-        margin: 10px;
-    }
-}
-
 /* S1 CTA button container */
 .CTAContainer1
 {
@@ -566,28 +370,29 @@ h2
 /* ------------ Section 2 ---------------*/
 .section2
 {
+    position: sticky;
     margin-top: 10px;
     display: flex;
-    position: sticky;
-    text-align: center !important;
+    overflow: hidden;
+    text-align: center;
     color: white;
     padding-top: 100px;
     background-color: var(--dark-accent);
     font-size: 50px;
-    width: 100vw !important;
     height: 1500px;
+    width: 100vw;
     font-family: Helvetica;
-    overflow: hidden;
     justify-content: center;
-    align-items: center;
+    align-items: start;
+    overflow-x: hidden;
 }
 
 .testPara
 {
     width: 100%;
-    position: absolute;
-    align-self: start;
-    justify-self: center !important;
+    position: sticky;
+    justify-self: start;
+    align-self: flex-start;
     font-family: ClashDisplay-Bold;
     font-weight: 300;
     font-size: 80px;
@@ -596,6 +401,23 @@ h2
     z-index: 20;
     padding: 0;
     z-index: 40;
+}
+
+.slide-container
+{
+    display: flex;
+    align-self: stretch;
+    justify-self: end;
+    width: max-content;
+    height: calc(100vh - 60px);
+    background-color: transparent;
+    width: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    overflow-x: auto;
+    z-index: 19;
 }
 
 /* Test section */
@@ -609,40 +431,61 @@ h2
     display: flex;
     justify-content: center;
     align-items: center;
-    width: auto !important; */
-    width: 100vw;
-    height: 100vh;
+    */
+    align-items: center;
+    align-self: end;
+    height: calc(100vh - 60px);
     font-size: 35px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    position: absolute;
-    align-self: end;
+    position: sticky;
+    width: 100vw;
+    z-index: 25;
 }
 
-/* .slide0 
+.slide > *
 {
-    background-color: var(--dark-orange);
-    width: 100vw !important;
-    height: 1500px !important;
-} */
+    text-align: center;
+}
+
+.slide0 
+{
+    width: 100vw;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* width: 100%; */
+}
 
 .slide1 
 {
-    background-color: #45FFE9;
     width: 100vw;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .slide2 
-{
-    background-color: #386F86;
+{   
     width: 100vw;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .slide3
 {
-    background-color: #FFD800;
     width: 100vw;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 } 
 
 
@@ -873,3 +716,198 @@ button
 
 /* MEDIA QUERIES ** MAY PUT THESE ELSE WHERE **  */
 
+@media (min-width: 1600px)
+{
+    h1 > *
+    {
+        font-size: 70px !important;
+    }
+}
+
+@media (max-width: 1600px)
+{
+    h1 > *
+    {
+        font-size: 60px !important;
+    }
+}
+
+@media (max-width: 1300px)
+{
+    h1 > *
+    {
+        font-size: 55px !important;
+    }
+}
+
+@media (max-width: 1050px)
+{
+    h1 > *
+    {
+        font-size: 50px !important;
+    }
+}
+
+@media (max-width: 800px)
+{
+    h1 > *
+    {
+        font-size: 6.5vw !important;
+    }
+
+    h2 
+    {
+        font-size: 4vw !important;
+    }
+}
+
+@media (max-width: 600px)
+{
+    h1 > *
+    {
+        /* font-size: 36px !important; */
+        font-size: 2vw;
+    }
+
+   
+}
+
+@media (max-width: 500px)
+{
+    h1 > * 
+    {
+        font-size: 33px !important;
+    }
+}
+
+@media (max-width: 400px)
+{
+    h1 > *
+    {
+        font-size: 30px !important;
+    }
+}
+
+@media (min-width: 1600px )
+{
+    .section1 
+    { 
+        width: 1520px;
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+    }
+}
+
+@media (max-width: 1600px)
+{
+    .section1 
+    { 
+        width: 95vw;
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+    }
+}
+
+@media (max-width: 1300px)
+{
+    .section1 
+    { 
+        width: 95vw; 
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+    }
+}
+
+@media (max-width: 1050px) {
+    .section1 
+    { 
+        width: 100vw; 
+        border-radius: 0;
+    }
+}
+
+@media (min-width: 1600px)
+{
+    .h1CTAContainer
+    {
+        width: 900px;
+    }
+}
+
+@media (max-width: 1600px)
+{
+    .h1CTAContainer 
+    { 
+        width: 750px;
+    }
+}
+
+@media (max-width: 1300px)
+{
+    .h1CTAContainer 
+    { 
+        width: 710px !important; 
+    }
+}
+
+@media (max-width: 1050px) {
+    .h1CTAContainer 
+    { 
+        width: 650px !important; 
+        border-radius: 0;
+    }
+}
+
+@media (max-width: 800px)
+{
+    .h1CTAContainer
+    {
+        width: 85% !important;
+    }
+}
+
+@media (max-width: 1050px)
+{
+    .sect1CTAContainer
+    {
+        width: 600px;
+    }
+
+    .sect1CTAContainer > button > span.label
+    {
+        font-size: 25px !important;
+    }
+}
+
+@media (max-width: 800px)
+{
+    .sect1CTAContainer
+    {
+        width: 500px !important;
+    }
+
+    .sect1CTAContainer > button > span.label
+    {
+        font-size: 20px !important;
+    }
+}
+
+@media (max-width: 600px)
+{
+    .sect1CTAContainer
+    {
+        width: 460px !important;
+        justify-content: space-evenly !important;
+        justify-self: center;
+    }
+
+    .sect1CTAContainer > button > span.label
+    {
+        font-size: 20px !important;
+    }
+
+    .sect1CTAContainer > button
+    {
+        margin: 10px;
+    }
+}

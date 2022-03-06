@@ -10,7 +10,3 @@ import section3 from './section3.js';
 import Variables from './Variables';
 import * as THREE from './THREE.js';
 import { NoToneMapping } from 'three';
-// import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
-
-
-
