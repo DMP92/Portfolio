@@ -83,4 +83,5 @@ MUST BE FIXED
 - Responsive design
 
 *X* - Horizontal slider
+- add 'left-panel' in the new section style selectors
 

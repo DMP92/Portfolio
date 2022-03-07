@@ -10,14 +10,14 @@ gsap.registerPlugin(ScrollTrigger);
  * Section 2 animations
 */
 
-// Section 2 H2 pop in
+// Split text set up
 const sect1Header = gsap.timeline(),
 mySplitText = new SplitText(".testPara", { type: "words, chars" }),
 chars = mySplitText.chars;
 gsap.set('.testPara', { perspective: 800 });
 gsap.to('.testPara', { color: 'black', opacity: 1 })
 
-// Flip H2 in
+// Create Section2 H2 animation
 sect1Header.from(chars, {
     duration: 1,
     opacity: 0,
@@ -29,7 +29,7 @@ sect1Header.from(chars, {
     stagger: .05,
 })
 
-// ST for H2 flip in
+// Stage H2 animation
 ScrollTrigger.create({
     animation: sect1Header,
     trigger: ".testPara",
@@ -40,10 +40,11 @@ ScrollTrigger.create({
     onEnter: () => console.log('1')
 })
 
-// Change Section2 background color to #2a2a2e on scroll
+// Create body background-color change to #2a2a2e & Section2 H2 to white
 const changeBackgroundToBlack = gsap.timeline();
-changeBackgroundToBlack.to('.section2', {
+changeBackgroundToBlack.to(document.body, {
     backgroundColor: '#2a2a2e',
+    delay: 0.5
 })
 .fromTo('.testPara', 
 {
@@ -52,21 +53,15 @@ changeBackgroundToBlack.to('.section2', {
 {
     color: 'white',
 })
-.fromTo(document.body,
-    {
-        backgroundColor: 'white'
-    },
-    {
-        backgroundColor: '#2a2a2e'
-    })
 
-// ST for bgcolor + header color change
+
+// Stage body background-color change & Section2 H2 color change
 ScrollTrigger.create({
     animation: changeBackgroundToBlack,
     trigger: '.section2',
     scrub: true,
-    start: "center center",
-    end: "bottom bottom",
+    start: "top top",
+    end: "+=1000",
     markers: true,
     onEnter: () => console.log('2')
 });
@@ -77,7 +72,28 @@ ScrollTrigger.create({
 //  * Section 2 onScroll animations
 //  */
 
-// Slider elements
+// Slide Section2 H2 out of view
+gsap.fromTo('.testPara',
+    {
+        xPercent: 0,
+        opacity: 1,
+        display: 'inline-block'
+    },
+    {
+        xPercent: -400,
+        opacity: 0,
+        display: 'none',
+        scrollTrigger:
+        {
+            trigger: ".slide-container",
+            start: "bottom bottom",
+            pin: true,
+            scrub: 1,
+            end: `+=${document.querySelector(".section2").offsetWidth}`
+        }
+    })
+
+// Create & stage each slide to move horizontally
 const allSlides = gsap.utils.toArray('.slide');
 
 gsap.to(allSlides,
@@ -96,35 +112,5 @@ gsap.to(allSlides,
         }
     })
     
-gsap.fromTo('.testPara',
-    {
-        xPercent: 0,
-        opacity: 1,
-    },
-    {
-        xPercent: -400,
-        opacity: 0,
-        scrollTrigger:
-        {
-            trigger: ".slide-container",
-            start: "bottom bottom",
-            pin: true,
-            scrub: 1,
-            end: `+=${document.querySelector(".section2").offsetWidth}`
-        }
-    })
     
-gsap.fromTo(document.body,
-{
-    backgroundColor: '#2a2a2e',
-},
-{
-    backgroundColor: 'white',
-    scrollTrigger:
-    {
-        trigger: '.slide3',
-        start: "center top",
-        end: "+=500",
-        scrub: true
-    }
-})
+

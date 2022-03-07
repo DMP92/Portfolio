@@ -16,45 +16,57 @@
 @font-face 
 {
     font-family: ClashDisplay-Bold;
-    src: url("../../static/fonts/OTF/ClashDisplay-Bold.woff");
+    src: url("../../static/fonts/WOFF/ClashDisplay-Bold.woff");
     font-weight: bold;
 }
 
 @font-face 
 {
     font-family: ClashDisplay-Extralight;
-    src: url("../../static/fonts/OTF/ClashDisplay-Extralight.ttf");
+    src: url("../../static/fonts/TTF/ClashDisplay-Extralight.ttf");
 }
 
 @font-face 
 {
     font-family: ClashDisplay-Light;
-    src: url("../../static/fonts/OTF/ClashDisplay-Light.ttf");
+    src: url("../../static/fonts/TTF/ClashDisplay-Light.ttf");
 }
 
 @font-face 
 {
     font-family: ClashDisplay-Regular;
-    src: url("../../static/fonts/OTF/ClashDisplay-Regular.ttf");
+    src: url("../../static/fonts/TTF/ClashDisplay-Regular.ttf");
 }
 
 @font-face 
 {
     font-family: ClashDisplay-Medium;
-    src: url("../../static/fonts/OTF/ClashDisplay-Medium.ttf");
+    src: url("../../static/fonts/TTF/ClashDisplay-Medium.ttf");
 }
 
 @font-face 
 {
     font-family: ClashDisplay-Semibold;
-    src: url("../../static/fonts/OTF/ClashDisplay-Semibold.ttf");
+    src: url("../../static/fonts/TTF/ClashDisplay-Semibold.ttf");
     font-weight: bold;
 }
 
 @font-face 
 {
     font-family: ClashDisplay-Variable;
-    src: url("../../static/fonts/OTF/ClashDisplay-Variable.woff") format("woff");
+    src: url("../../static/fonts/WOFF/ClashDisplay-Variable.woff") format("woff");
+}
+
+@font-face
+{
+    font-family: HelveticaNeueLTProBdOu;
+    src: url("../../static/fonts/OTF/HelveticaNeueLTProBdOu.otf")
+}
+
+@font-face
+{
+    font-family: HelveticaNeueLTProBdCn;
+    src: url("../../static/fonts/OTF/HelveticaNeueLTProBdCn.otf")
 }
 
 body
@@ -377,7 +389,6 @@ h2
     text-align: center;
     color: white;
     padding-top: 100px;
-    background-color: var(--dark-accent);
     font-size: 50px;
     height: 1500px;
     width: 100vw;
@@ -406,7 +417,7 @@ h2
 .slide-container
 {
     display: flex;
-    align-self: stretch;
+    align-self: start;
     justify-self: end;
     width: max-content;
     height: calc(100vh - 60px);
@@ -415,9 +426,10 @@ h2
     display: flex;
     justify-content: center;
     align-items: center;
-    position: sticky;
+    position: relative;
     overflow-x: auto;
     z-index: 19;
+    
 }
 
 /* Test section */
@@ -458,37 +470,245 @@ h2
     /* width: 100%; */
 }
 
+/* Slide 1 */
 .slide1 
 {
     width: 100vw;
     background-color: transparent;
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide1-left-panel
+{
+    height: calc(100vh - 60px);
+    background-color: #2f2f36;
+    width: 18vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.slide1-number
+{
+    height: 15vh;
+    width: 100%;
+    font-family: HelveticaNeueLTProBdOu;
+    color: #45FFE9;
+    font-size: 85px;
+    display: flex;
+    justify-content: start;
+    align-items: flex-start;
+    text-indent: 30px;
+    padding-top: 30px;
+}
+
+.slide1-title
+{
+    height: 70;
+    width: 100%;
+    display: flex;
+    padding-top: 150px;
+    justify-content: end;
+    writing-mode: vertical-lr;
+    transform: rotateX(150deg);
+    transform: rotate(180deg);
+    font-family: HelveticaNeueLTProBdOu;
+    font-weight: 500;
+    color: #45FFE9;
+    font-size: 90px;
+}
+
+.left-panel-bottom-1
+{
+    height: 15vh;
+    width: 100%;
+    background-color: #34343b;
+    float: right;
+    display: flex;
+    padding: 0;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+.left-panel-prompt-1
+{
+    
+    font-family: ClashDisplay-ExtraLight;
+}
+
+.slide1-main-content
+{
+    width: 82vw;
+    height: calc(100vh - 60px);
+    background-color: transparent;
+}
+
+/* Slide2 */
 .slide2 
 {   
     width: 100vw;
     background-color: transparent;
     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide2-left-panel
+{
+    height: calc(100vh - 60px);
+    background-color: #2f2f36;
+    width: 18vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.slide2-number
+{
+    height: 15vh;
+    width: 100%;
+    font-family: HelveticaNeueLTProBdOu;
+    color: #FFD800;
+    font-size: 85px;
+    display: flex;
+    justify-content: start;
+    align-items: flex-start;
+    text-indent: 30px;
+    padding-top: 30px;
+}
+
+.slide2-title
+{
+    height: 70;
+    width: 100%;
+    display: flex;
+    padding-top: 150px;
+    justify-content: end;
+    writing-mode: vertical-lr;
+    transform: rotateX(150deg);
+    transform: rotate(180deg);
+    font-family: HelveticaNeueLTProBdCn;
+    font-weight: 500;
+    color: #FFD800;
+    font-size: 90px;
+}
+
+.left-panel-bottom-2
+{
+    height: 15vh;
+    width: 100%;
+    background-color: #34343b;
+    float: right;
+    display: flex;
+    padding: 0;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
+.left-panel-prompt-2
+{
+    color: #FFD800;
+    font-family: ClashDisplay-ExtraLight;
+}
+
+.slide2-main-content
+{
+    width: 82vw;
+    height: calc(100vh - 60px);
+    background-color: transparent;
+}
+
+
+/* Slide 3 */
 .slide3
 {
     width: 100vw;
     background-color: transparent;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 } 
 
+.slide3-left-panel
+{
+    height: calc(100vh - 60px);
+    background-color: #2f2f36;
+    width: 18vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
+.slide3-number
+{
+    height: 15vh;
+    width: 100%;
+    font-family: HelveticaNeueLTProBdOu;
+    color: #cf9efd;
+    font-size: 85px;
+    display: flex;
+    justify-content: start;
+    align-items: flex-start;
+    text-indent: 30px;
+    padding-top: 30px;
+}
+
+.slide3-title
+{
+    height: 70;
+    width: 100%;
+    display: flex;
+    padding-top: 150px;
+    justify-content: end;
+    writing-mode: vertical-lr;
+    transform: rotateX(150deg);
+    transform: rotate(180deg);
+    font-family: HelveticaNeueLTProBdOu;
+    font-weight: 500;
+    color: #cf9efd;
+    font-size: 90px;
+}
+
+.left-panel-bottom-3
+{
+    height: 15vh;
+    width: 100%;
+    background-color: #34343b;
+    float: right;
+    display: flex;
+    padding: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-panel-prompt-3
+{
+    color: #cf9efd;
+    font-family: ClashDisplay-ExtraLight;
+}
+
+.slide3-main-content
+{
+    width: 82vw;
+    height: calc(100vh - 60px);
+    background-color: transparent;
+}
+
+
+/* --------------- Section 3 ------------------ */
+.section3
+{
+    width: 100vw;
+    height: 100vh;
+    background-color: yellow;
+    margin-top: 130vh;
+    position: relative;
+}
 
 /* ------------- Possibly won't use this section ------------ */
 /* .testSection

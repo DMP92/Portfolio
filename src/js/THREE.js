@@ -39,7 +39,7 @@ const gltfLoader = new GLTFLoader();
 gltfLoader.setDRACOLoader(dracoLoader);
 
 gltfLoader.load(
-    "/static/models/micelle.glb",
+    "/static/models/GLB/micelle.glb",
     (gltf) =>
     {
         // console.log(gltf);
