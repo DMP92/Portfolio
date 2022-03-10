@@ -104,10 +104,11 @@ gsap.to(allSlides,
         {
             trigger: ".slide-container",
             start: "bottom bottom",
+            onUpdate: self => console.log("progress:", self.progress),
             pin: true,
             scrub: 1,
             snap: 1 / (allSlides.length - 1),
-            anticipatePin: 1,
+            anticipatePin: 1000,
             end: () => "+=" + document.querySelector(".section2").offsetWidth,
         }
     })
